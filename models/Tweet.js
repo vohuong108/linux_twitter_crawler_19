@@ -14,4 +14,4 @@ const tweet = new mongoose.Schema({
     key_words: String
 }, { timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' } });
 
-module.exports = mongoose.model('v3_tweets', tweet);;
+module.exports = mongoose.model('v4_tweets', tweet);;

@@ -9,8 +9,8 @@ const QUERY = "robotic%20OR%20%22machine%20learning%22%20OR%20%22artificial%20in
 const handleSearchTweet = async () => {
     let NEXT_TOKEN = "";
     let INDEX_DOCUMENT = 0;
-    // let NEXT_TOKEN = "b26v89c19zqg8o3fpe482g84if94rua42nveykgsh26wt";
-    // let INDEX_DOCUMENT = 7426634;
+    // let NEXT_TOKEN = "b26v89c19zqg8o3fpds84irxituj7zurauoxn4e4xqoot";
+    // let INDEX_DOCUMENT = 19380580;
 
     let tokenInfo = await getNextToken();
 
