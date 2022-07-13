@@ -1,26 +1,54 @@
 const Tweet = require('./models/Tweet');
 const {searchTweet} = require('./helper');
 
-const API_KEY = "AAAAAAAAAAAAAAAAAAAAABopbAEAAAAABjKNpF1Z6Q%2FY60kB7mGf2LkGulM%3DBsIva0OchIY5Q3Ip9VuBbT6B3Otbs9SkswbKWZ90S3xkpVrtDW";
-// const API_KEY = "AAAAAAAAAAAAAAAAAAAAAORkbgEAAAAAAcQTpVTL1JW5kQsqXVLrghj0q84%3DhGKngmKtw03vI5expf1O15qibaESFefHHGah34mRngrVTzMwIm"
+//const API_KEY = "AAAAAAAAAAAAAAAAAAAAABopbAEAAAAABjKNpF1Z6Q%2FY60kB7mGf2LkGulM%3DBsIva0OchIY5Q3Ip9VuBbT6B3Otbs9SkswbKWZ90S3xkpVrtDW";
+//const API_KEY = "AAAAAAAAAAAAAAAAAAAAAORkbgEAAAAAAcQTpVTL1JW5kQsqXVLrghj0q84%3DhGKngmKtw03vI5expf1O15qibaESFefHHGah34mRngrVTzMwIm";
+// const API_KEY = "AAAAAAAAAAAAAAAAAAAAAC5iegEAAAAApMUw1cVIf8Y2JLwdy3y%2BIXknb50%3D0mgfp6m6EvtB7oWplJhoMxpP1UnvODEeCWQn1fCiws1zK23mOI";
+const API_KEY = "AAAAAAAAAAAAAAAAAAAAAFv6egEAAAAAtIatpQMP5xxsg8dB5Zmbe%2BOHcd0%3DrgUzn2UrfRz65oHoPSgCxKVd1VH3hTaDi9x7TXcVpYBBnigQCM";
 const QUERY = "robotic%20OR%20%22machine%20learning%22%20OR%20%22artificial%20intelligence%22%20OR%20%22ai%22%20lang%3Aen";
 
 
 const handleSearchTweet = async () => {
-    let NEXT_TOKEN = "";
-    let INDEX_DOCUMENT = 0;
-    // let NEXT_TOKEN = "b26v89c19zqg8o3fpds84irxituj7zurauoxn4e4xqoot";
-    // let INDEX_DOCUMENT = 19380580;
+    // let NEXT_TOKEN = "";
+    // let INDEX_DOCUMENT = 0;
+    //let NEXT_TOKEN = "b26v89c19zqg8o3fnlu0y3jqjeqyhbymm08ypcnlx7tkt";
+    //let INDEX_DOCUMENT = 13000920;
 
-    let tokenInfo = await getNextToken();
+    // let tokenInfo = await getNextToken();
 
-    if(tokenInfo !== "FAILED GET NEXTTOKEN") {
-        console.log("GET NEXTTOKEN SUCCESSFULL: ", tokenInfo);
+    // if(tokenInfo !== "FAILED GET NEXTTOKEN") {
+    //     console.log("GET NEXTTOKEN SUCCESSFULL: ", tokenInfo);
 
-        NEXT_TOKEN = tokenInfo.next_token;
-        INDEX_DOCUMENT = tokenInfo.currentIndex + 1;
+    //     NEXT_TOKEN = tokenInfo.next_token;
+    //     INDEX_DOCUMENT = tokenInfo.currentIndex + 1;
 
-    } else return "FAILED IN SEARCH TWEET";
+    // } else return "FAILED IN SEARCH TWEET";
+
+    await saveTweet([{
+        index: 13001016,
+        tweet_id: "1134610502255030272",
+        conversation_id: "1134610502255030272",
+        text: "AI+ NEWS * SecureWorks Corp. (SCWX) Stock: A Strong Pick In The Tech Industry? – iWatch Markets https://t.co/ejvzXVOKjA",
+        lang: "en",
+        created_tweet_at: "2019-05-31T23:59:58.000Z",
+        public_metrics: {retweet_count: 0, reply_count: 0, like_count: 0, quote_count: 0},
+        referenced_tweets: [],
+        next_token: "b26v89c19zqg8o3fnlu0y3jqjdwi3bb37gnvrdaox4hh9",
+        key_words: "OPTION 1"
+    }, {
+        index: 13001017,
+        tweet_id: "1134610495288352772",
+        conversation_id: "1134610495288352772",
+        text: "AI+ NEWS * Vislink Technologies, Inc. (VISL) Stock: Is This Tech Stock Worth Your Attention? – iWatch Markets https://t.co/P0W1GCMy0i",
+        lang: "en",
+        created_tweet_at: "2019-05-31T23:59:56.000Z",
+        public_metrics: {retweet_count: 0, reply_count: 0, like_count: 0, quote_count: 0},
+        referenced_tweets: [],
+        next_token: "b26v89c19zqg8o3fnlu0y3jqjdwi3bb37gnvrdaox4hh9",
+        key_words: "OPTION 1"
+    }])
+
+    return "DONE INSERT";
 
     while (true) {
         let searchResponse = await searchTweet(QUERY, NEXT_TOKEN, API_KEY);

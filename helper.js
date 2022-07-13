@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-const searchTweet = async(query, nextToken, API_KEY, maxResults=100, start_time="2020-01-01T00:00:00.000Z", end_time="2022-04-07T00:00:00.000Z") => {
+const searchTweet = async(query, nextToken, API_KEY, maxResults=100, start_time="2019-01-01T00:00:00.000Z", end_time="2019-12-31T23:59:00.000Z") => {
     let baseUrl = "https://api.twitter.com/2/tweets/search/all?tweet.fields=id,created_at,text,referenced_tweets,public_metrics,lang,conversation_id";
     
     if(nextToken) {
